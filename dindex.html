@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .index-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            vertical-align: top;
+        }
+
+        .index-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 90px;
+            overflow: hidden;
+        }
+
+        .index-logo {
+            float: left;
+            margin-top: 20px;
+            margin-left: 80px;
+        }
+
+        .index-nav {
+            margin-right: 140px;
+            overflow: hidden; /*去除浮动影响*/
+        }
+
+        .index-nav div {
+            float: right;
+            color: white;
+            height: 90px;
+            line-height: 90px;
+            padding: 0 12px;
+            cursor: pointer;
+        }
+
+        .index-footer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 5px;
+            width: 100%;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .index-footer div {
+            line-height: 25px;
+        }
+
+        .index-main {
+            position: absolute;
+            right: 150px;
+            top: 40%;
+            left: 0;
+            text-align: right; /*对内部行级标签生效 */
+        }
+
+        .index-download {
+            margin-top: 50px;
+        }
+
+        .index-download img {
+            border-radius: 8px;
+            border: 1px solid black;
+            box-shadow: 1px 1px 7px 2px rgba(0, 0, 0, .54);
+        }
+
+        .index-app:hover { /*鼠标悬停执行透明动作*/
+            opacity: 0.5;
+        }
+    </style>
+    <script>
+        // function playerClick() {
+        //     var player = document.getElementById('player');
+        //     var video = document.getElementById('video');
+        //     if (player.getAttribute('src') === 'image/player_close.png'){
+        //         player.setAttribute('src','image/player.png');
+        //         video.muted = false;
+        //     }else{
+        //         player.setAttribute('src','image/player_close.png');
+        //         video.muted = true;
+        //     }
+        // }
+        window.onload = function () {
+            var player = document.getElementById('player');
+            var video = document.getElementById('video');
+            player.onclick = function () {
+                if (player.getAttribute('src') === 'image/player_close.png') {
+                    player.setAttribute('src', 'image/player.png');
+                    video.muted = false;
+                } else {
+                    player.setAttribute('src', 'image/player_close.png');
+                    video.muted = true;
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+<video id="video" class="index-video" autoplay loop muted src="video/video.mp4"></video>
+<div class="index-header">
+    <img class="index-logo" src="image/logo.png"/>
+    <div class="index-nav">
+        <div><img id="player" src="image/player_close.png" width="18"/></div>
+        <div>企业合作</div>
+        <div>机构认证</div>
+        <div>抖音MCN</div>
+        <div>抖音音乐人</div>
+        <div>抖音特效师</div>
+        <div>视频上传</div>
+        <div>开放平台</div>
+    </div>
+</div>
+<div class="index-footer">
+    <div style="line-height: 50px">| 音乐 |用户服务协议 | 隐私政策 | 账号找回 | 联系我们 | 广告投放 | 营业执照 |</div>
+    <div>2019 © 抖音 | 京ICP备16016397号-3 | 北京微播视界科技有限公司 | 京B2-20170846</div>
+    <div>中国互联网举报中心 | 网络文化许可证-京网文-（2016）2282-264号 | 客户服务热线：400-992-2556 | 违法和不良信息举报：400-140-2108 |
+        举报邮箱：jubao@douyin.com
+    </div>
+    <div>京公网安备 11010802023605号 | 地址 : 北京市海淀区知春路51号4层408</div>
+</div>
+
+<div class="index-main">
+    <img src="image/slogan.png" width="450px"/>
+    <div class="index-download">
+        <img class="index-app" height="50" src="image/appstore.png" style="margin-right: 8px"/>
+        <img class="index-app" height="50" src="image/android.png" style="margin-right: 8px"/>
+        <img height="50" src="image/qrcode.png"/>
+    </div>
+
+</div>
+</body>
+
+</html>
