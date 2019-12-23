@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>抖音</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
     <style>
         * {
             padding: 0;
@@ -19,6 +20,7 @@
             height: 100%;
             object-fit: cover;
             vertical-align: top;
+            min-width: 1200px;
         }
 
         .index-header {
@@ -29,6 +31,7 @@
             width: 100%;
             height: 90px;
             overflow: hidden;
+            min-width: 1200px;
         }
 
         .index-logo {
@@ -60,6 +63,7 @@
             color: white;
             font-size: 14px;
             text-align: center;
+            min-width: 1200px;
         }
 
         .index-footer div {
@@ -68,10 +72,11 @@
 
         .index-main {
             position: absolute;
-            right: 150px;
+            right: 0;
             top: 40%;
             left: 0;
             text-align: right; /*对内部行级标签生效 */
+            min-width: 1200px;
         }
 
         .index-download {
@@ -84,12 +89,17 @@
             box-shadow: 1px 1px 7px 2px rgba(0, 0, 0, .54);
         }
 
+        .index-app {
+            cursor: pointer;
+        }
+
         .index-app:hover { /*鼠标悬停执行透明动作*/
             opacity: 0.5;
         }
     </style>
     <script>
-        // function playerClick() {
+        /*************************************************************************
+         // function playerClick() {
         //     var player = document.getElementById('player');
         //     var video = document.getElementById('video');
         //     if (player.getAttribute('src') === 'image/player_close.png'){
@@ -100,7 +110,10 @@
         //         video.muted = true;
         //     }
         // }
-        window.onload = function () {
+         ****************************************************************************/
+
+        /****************************************************************************
+         window.onload = function () {
             var player = document.getElementById('player');
             var video = document.getElementById('video');
             player.onclick = function () {
@@ -113,6 +126,24 @@
                 }
             }
         }
+         ****************************************************************************/
+
+        //JQuery
+        $(function () {
+            var $player = $('#player');  //Jquery获取标签
+            var $video = $('#video');
+            $player.on('click', function () {
+                if ($player.attr('src') === 'image/player_close.png') {
+                    $player.attr('src', 'image/player.png');
+                    $video.get(0).muted = false;
+                } else {
+                    $player.attr('src', 'image/player_close.png');
+                    $video.get(0).muted = true;
+                }
+
+            })
+
+        })
     </script>
 
 </head>
@@ -142,11 +173,11 @@
 </div>
 
 <div class="index-main">
-    <img src="image/slogan.png" width="450px"/>
+    <img width="450px" style="margin-right: 150px" src="image/slogan.png"/>
     <div class="index-download">
         <img class="index-app" height="50" src="image/appstore.png" style="margin-right: 8px"/>
         <img class="index-app" height="50" src="image/android.png" style="margin-right: 8px"/>
-        <img height="50" src="image/qrcode.png"/>
+        <img style="margin-right: 150px" height="50" src="image/qrcode.png"/>
     </div>
 
 </div>
