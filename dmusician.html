@@ -3,8 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .musician-header{
+            height: 80px;
+            overflow: hidden;
+        }
+        .musician-logo{
+            float: left;
+            margin-top: 15px;
+            margin-left: 25px;
+        }
+        .musician-nav div{
+            float: right;
+            height: 24px;
+            line-height: 24px;
+            font-size: 15px;
+            margin: 28px 15px 0 14px;
+            cursor: pointer;
+
+        }
+        .musician-nav{
+            margin-right: 14px;
+            overflow: hidden;
+            font-family: Hei,serif;
+        }
+        .musician-ad{
+            background-image: url("image/banner.png");
+            height: 300px;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;   /*溢出隐藏*/
+
+            text-align: center;/*行级标签水平居中*/
+        }
+        .musician-slogan{
+            font-size: 70px;
+            font-family: Hei,serif;
+            font-weight: bold;
+            margin-top: 50px;
+        }
+        .musician-join{
+            width: 164px;
+            height: 63px;
+            font-size: 20px;
+            font-family: Hei,serif;
+            line-height: 63px;
+            background: white;
+            display: inline-block;  /*要块级标签具有行级标签的属性*/
+            border-radius: 4px;
+            margin-top: 40px;
+            cursor: pointer;
+        }
+        .musician-listen{
+            font-size: 40px;
+            font-weight: bold;
+            font-family: Hei,serif;
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 60px;
+        }
+        .musician-text{
+            text-align: center;
+        }
+        .musician-join2{
+            width: 164px;
+            height: 63px;
+            font-size: 20px;
+            font-family: Hei,serif;
+            line-height: 63px;
+            background: darksalmon;
+            border-radius: 4px;
+            margin-top: 40px;
+            cursor: pointer;
+        }
+        .musician-music{
+            position: relative;
+            width: 180px;
+            padding: 30px;
+            display: inline-block;
+        }
+        .musician-music-name{
+            position: absolute;
+            bottom: 35px;
+            left: 0;
+            font-size: 12px;
+            color: white;
+            width: 240px;
+            text-align: center;
+            font-family: serif,Hei;
+        }
+        .musician-music-logo{
+            vertical-align: top; /*解决因为行级标签基线产生的问题*/
+            border-radius: 6px;
+            box-shadow: 2px 4px 10px rgba(34,90,89,.2);
+        }
+        .musician-music-marquee{
+            width: 2200px;
+        }
+        .musician-music-container{
+            width: 100%;
+            overflow: hidden;   /*隐藏多余的图片*/
+            position: relative;
+        }
+        .left-pointer{
+            position: absolute;
+            left: 50px;
+            top: 300px;
+        }
+        .right-pointer{
+            position: absolute;
+            right: 50px;
+            top: 300px;
+        }
+    </style>
 </head>
 <body>
+    <div class="musician-header">
+        <img class="musician-logo" src="image/musician-logo.png" width="164">
+        <div class="musician-nav">
+            <div style="color: red">登录</div>
+            <div>国风征集季</div>
+            <div style="border-bottom: red 2px solid">首页</div>
+        </div>
+    </div>
+    <div class="musician-ad">
+        <div class="musician-slogan">你的音乐，世界看见</div>
+        <div class="musician-join">立即入驻</div>
+    </div>
+
+    <div>
+        <div class="musician-listen">让你的音乐在抖音被更多人听见</div>
+        <div class="musician-text">自由上传音乐文件并与更多人分享，丰富你的资料并收获更多关注。</div>
+        <div class="musician-text">随时追踪音乐的数据动态！</div>
+        <div style="text-align: center;margin-top: 20px">
+            <img src="image/joinus.png" width="1000"/>
+        </div>
+        <div style="text-align: center">
+            <div class="musician-join2" style="display: inline-block">立即入驻</div>
+        </div>
+    </div>
+
+    <div class="musician-music-container">
+        <div class="musician-listen">抖音音乐</div>
+        <div class="musician-text">数以亿计用户在等待聆听并分享你的音乐。</div>
+        <div class="musician-music-marquee">
+            <div class="musician-music">
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee1.jpeg"/>
+                <span class="musician-music-name">你笑起来真好看</span>
+            </div>
+            <div class="musician-music">
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee2.jpeg"/>
+                <span class="musician-music-name">野狼disco</span>
+            </div>
+            <div class="musician-music">
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee3.jpeg"/>
+                <span class="musician-music-name">绿色</span>
+            </div>
+            <div class="musician-music">
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee4.jpeg"/>
+                <span class="musician-music-name">小星星</span>
+            </div>
+            <div class="musician-music">
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee5.jpeg"/>
+                <span class="musician-music-name">你笑起来真好看</span>
+            </div>
+            <div class="musician-music">
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee6.jpeg"/>
+                <span class="musician-music-name">野狼disco</span>
+            </div>
+            <div class="musician-music">
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee4.jpeg"/>
+                <span class="musician-music-name">小星星</span>
+            </div>
+            <div class="musician-music">
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee5.jpeg"/>
+                <span class="musician-music-name">你笑起来真好看</span>
+            </div>
+            <div class="musician-music">
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee6.jpeg"/>
+                <span class="musician-music-name">野狼disco</span>
+            </div>
+        </div>
+        <img class="left-pointer" src="image/left-pointer.svg"/>
+        <img class="right-pointer" src="image/right-pointer.svg"/>
+
+    </div>
 
 </body>
 </html>
