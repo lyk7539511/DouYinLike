@@ -203,6 +203,13 @@
                 $(this).children('.musician-music-logo').removeClass('musician-music-logo-active');    //children()用来找到当前对象的孩子
                 $(this).children('.musician-music-name').removeClass('musician-music-name-active');
             });
+
+            var $video = $('.musician-video');
+            $('.musician-song').on('click',function () {
+                var video = $(this).attr('video');
+                $video.attr('src',video);
+
+            });
         })
     </script>
 </head>
@@ -301,28 +308,28 @@
 
     <div class="musician-song-container">
         <div class="musician-song-list">
-            <div class="musician-song" style="background: #f1f1f2">
+            <div class="musician-song" video = "video/song-video-douyin-1.mp4" style="background: #f1f1f2">
                 <img src="image/video_logo1.jpeg" height="40">
                 <div class="musician-singer">
                     <div style="font-weight: bold">芒种</div>
                     <div>因阙诗听</div>
                 </div>
             </div>
-            <div class="musician-song">
+            <div class="musician-song" video = "video/song-video-douyin-5.mp4">
                 <img src="image/video_logo5.jpeg" height="40">
                 <div class="musician-singer">
                     <div style="font-weight: bold">你笑起来真好看</div>
                     <div>李昕融</div>
                 </div>
             </div>
-            <div class="musician-song">
+            <div class="musician-song" video = "video/song-video-douyin-8.mp4">
                 <img src="image/video_logo8.jpeg" height="40">
                 <div class="musician-singer">
                     <div style="font-weight: bold">赤伶</div>
                     <div>执素兮</div>
                 </div>
             </div>
-            <div class="musician-song">
+            <div class="musician-song" video = "video/song-video-douyin-10.mp4">
                 <img src="image/video_logo10.jpeg" height="40">
                 <div class="musician-singer">
                     <div style="font-weight: bold">想对你说</div>
