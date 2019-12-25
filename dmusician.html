@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>二手抖音音乐人</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
     <style>
         *{
             padding: 0;
@@ -97,18 +98,29 @@
             width: 240px;
             text-align: center;
             font-family: serif,Hei;
+            transition: all 0.3s ease-in-out 50ms;
+            opacity: 0;
+        }
+        .musician-music-name-active{
+            transform: translate(0,15px);
+            opacity: 1;
         }
         .musician-music-logo{
             vertical-align: top; /*解决因为行级标签基线产生的问题*/
             border-radius: 6px;
             box-shadow: 2px 4px 10px rgba(34,90,89,.2);
+            transition: all 0.3s ease-in-out 50ms;   /*动画过渡：所有元素 动画执行时间 变速动画 鼠标悬停50ms执行*/
+        }
+        .musician-music-logo:hover{
+            transform: scale(1.2);
         }
         .musician-music-marquee{
             width: 2200px;
+            margin-left: 120px;
         }
         .musician-music-container{
             width: 100%;
-            overflow: hidden;   /*隐藏多余的图片*/
+            overflow: hidden;   /*溢出隐藏多余的图片*/
             position: relative;
         }
         .left-pointer{
@@ -120,8 +132,41 @@
             position: absolute;
             right: 50px;
             top: 300px;
+            transform: rotate(180deg);
         }
     </style>
+
+    <script>
+        var distance = 120;
+        $(function () {
+            var $leftpointer = $('.left-pointer');
+            var $rightpointer = $('.right-pointer');
+            var $marquee = $('.musician-music-marquee');
+            $marquee.css('margin-left',(distance+'px'));
+            $leftpointer.on('click',function () {   //点击左按钮
+                if (distance < 0){
+                    distance += 240;
+                    $marquee.animate({
+                        'margin-left':(distance+'px')
+                    },300);
+                }
+            });
+            $rightpointer.on('click',function () {  //点击右按钮
+                if (distance > -860){
+                    distance -= 240;
+                    $marquee.animate({
+                        'margin-left':(distance+'px')
+                    },300);
+                }
+            });
+            //鼠标移入移出图片动画
+            $('.musician-music-logo').hover(function () {
+                $(this).next().addClass('musician-music-name-active');  //next()用来查找下一个标签
+            },function () {
+                $(this).next().removeClass('musician-music-name-active');
+            });
+        })
+    </script>
 </head>
 <body>
     <div class="musician-header">
@@ -178,20 +223,24 @@
                 <span class="musician-music-name">野狼disco</span>
             </div>
             <div class="musician-music">
-                <img class="musician-music-logo" width="180" height="180" src="image/marquee4.jpeg"/>
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee7.jpeg"/>
                 <span class="musician-music-name">小星星</span>
             </div>
             <div class="musician-music">
-                <img class="musician-music-logo" width="180" height="180" src="image/marquee5.jpeg"/>
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee8.jpeg"/>
                 <span class="musician-music-name">你笑起来真好看</span>
             </div>
             <div class="musician-music">
-                <img class="musician-music-logo" width="180" height="180" src="image/marquee6.jpeg"/>
+                <img class="musician-music-logo" width="180" height="180" src="image/marquee9.jpeg"/>
                 <span class="musician-music-name">野狼disco</span>
             </div>
         </div>
         <img class="left-pointer" src="image/left-pointer.svg"/>
         <img class="right-pointer" src="image/right-pointer.svg"/>
+
+    </div>
+
+    <div>
 
     </div>
 
