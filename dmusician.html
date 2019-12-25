@@ -60,6 +60,11 @@
             border-radius: 4px;
             margin-top: 40px;
             cursor: pointer;
+            opacity: 1;
+            transition: all 0.3s ease-in-out 50ms;
+        }
+        .musician-join:hover{
+            opacity: 0.8;
         }
         .musician-listen{
             font-size: 40px;
@@ -115,7 +120,7 @@
             transform: scale(1.2);
         }
         .musician-music-marquee{
-            width: 2200px;
+            width: 1800px;
             margin-left: 120px;
         }
         .musician-music-container{
@@ -134,6 +139,34 @@
             top: 300px;
             transform: rotate(180deg);
         }
+        .musician-star{
+            width: 94px;
+            height: 94px;
+            border-radius: 47px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .musician-star img{
+            transition: all 0.3s ease-in-out 50ms;
+        }
+        .musician-star img:hover{
+            transform: scale(1.4);
+        }
+        .musician-people-name{
+            width: 94px;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+        .musician-people{
+            padding: 17px;
+            display: inline-block;
+
+        }
+        .musician-people-container{
+            text-align: center;
+        }
+
     </style>
 
     <script>
@@ -152,7 +185,7 @@
                 }
             });
             $rightpointer.on('click',function () {  //点击右按钮
-                if (distance > -860){
+                if (distance > -260){
                     distance -= 240;
                     $marquee.animate({
                         'margin-left':(distance+'px')
@@ -216,32 +249,62 @@
             </div>
             <div class="musician-music">
                 <img class="musician-music-logo" width="180" height="180" src="image/marquee5.jpeg"/>
-                <span class="musician-music-name">你笑起来真好看</span>
+                <span class="musician-music-name">心如止水</span>
             </div>
             <div class="musician-music">
                 <img class="musician-music-logo" width="180" height="180" src="image/marquee6.jpeg"/>
-                <span class="musician-music-name">野狼disco</span>
+                <span class="musician-music-name">生僻字</span>
             </div>
             <div class="musician-music">
                 <img class="musician-music-logo" width="180" height="180" src="image/marquee7.jpeg"/>
-                <span class="musician-music-name">小星星</span>
+                <span class="musician-music-name">可不可以</span>
             </div>
-            <div class="musician-music">
-                <img class="musician-music-logo" width="180" height="180" src="image/marquee8.jpeg"/>
-                <span class="musician-music-name">你笑起来真好看</span>
-            </div>
-            <div class="musician-music">
-                <img class="musician-music-logo" width="180" height="180" src="image/marquee9.jpeg"/>
-                <span class="musician-music-name">野狼disco</span>
-            </div>
+
         </div>
         <img class="left-pointer" src="image/left-pointer.svg"/>
         <img class="right-pointer" src="image/right-pointer.svg"/>
 
     </div>
 
-    <div>
+    <div class="musician-people-container">
+        <div class="musician-listen">抖音音乐人</div>
+        <div class="musician-people">
+            <div class="musician-star">
+                <img src="image/musician2.jpg" width="94" height="94"/>
+            </div>
+            <div class="musician-people-name">简弘亦</div>
+        </div>
+        <div class="musician-people">
+            <div class="musician-star">
+                <img src="image/musician3.jpg" width="94" height="94"/>
+            </div>
+            <div class="musician-people-name">徐秉龙</div>
+        </div>
+        <div class="musician-people">
+            <div class="musician-star">
+                <img src="image/musician4.jpg" width="94" height="94"/>
+            </div>
+            <div class="musician-people-name">摩登兄弟</div>
+        </div>
+        <div class="musician-people">
+            <div class="musician-star">
+                <img src="image/musician5.jpg" width="94" height="94"/>
+            </div>
+            <div class="musician-people-name">音阙诗听</div>
+        </div>
+    </div>
 
+    <div class="musician-video-list-container">
+        <div class="musician-list-text">
+            <h2>你的音乐很重要</h2>
+            <p>抖音鼓励用户通过音乐短视频表达他们的热情和创造力，当然，你的音乐很重要！</p>
+        </div>
+        <div class="musician-list">
+            <div class="musician-list-item">
+                <img src="image/">
+            </div>
+
+        </div>
     </div>
 
 </body>
