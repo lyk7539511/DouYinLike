@@ -91,16 +91,17 @@
         .musician-music{
             position: relative;
             width: 180px;
-            padding: 30px;
+            margin: 30px;
             display: inline-block;
+            cursor: pointer;
         }
         .musician-music-name{
             position: absolute;
-            bottom: 35px;
+            bottom: 5px;
             left: 0;
             font-size: 12px;
             color: white;
-            width: 240px;
+            width: 180px;
             text-align: center;
             font-family: serif,Hei;
             transition: all 0.3s ease-in-out 50ms;
@@ -116,7 +117,7 @@
             box-shadow: 2px 4px 10px rgba(34,90,89,.2);
             transition: all 0.3s ease-in-out 50ms;   /*动画过渡：所有元素 动画执行时间 变速动画 鼠标悬停50ms执行*/
         }
-        .musician-music-logo:hover{
+        .musician-music-logo-active{
             transform: scale(1.2);
         }
         .musician-music-marquee{
@@ -132,12 +133,14 @@
             position: absolute;
             left: 50px;
             top: 300px;
+            cursor: pointer;
         }
         .right-pointer{
             position: absolute;
             right: 50px;
             top: 300px;
             transform: rotate(180deg);
+            cursor: pointer;
         }
         .musician-star{
             width: 94px;
@@ -193,10 +196,12 @@
                 }
             });
             //鼠标移入移出图片动画
-            $('.musician-music-logo').hover(function () {
-                $(this).next().addClass('musician-music-name-active');  //next()用来查找下一个标签
+            $('.musician-music').hover(function () {
+                $(this).children('.musician-music-logo').addClass('musician-music-logo-active');    //children()用来找到当前对象的孩子
+                $(this).children('.musician-music-name').addClass('musician-music-name-active');
             },function () {
-                $(this).next().removeClass('musician-music-name-active');
+                $(this).children('.musician-music-logo').removeClass('musician-music-logo-active');    //children()用来找到当前对象的孩子
+                $(this).children('.musician-music-name').removeClass('musician-music-name-active');
             });
         })
     </script>
@@ -296,12 +301,33 @@
 
     <div class="musician-song-container">
         <div class="musician-song-list">
-            <div class="musician-song">
+            <div class="musician-song" style="background: #f1f1f2">
                 <img src="image/video_logo1.jpeg" height="40">
                 <div class="musician-singer">
-                <div style="font-weight: bold">芒种</div>
-                <div>因阙诗听</div>
+                    <div style="font-weight: bold">芒种</div>
+                    <div>因阙诗听</div>
+                </div>
             </div>
+            <div class="musician-song">
+                <img src="image/video_logo5.jpeg" height="40">
+                <div class="musician-singer">
+                    <div style="font-weight: bold">你笑起来真好看</div>
+                    <div>李昕融</div>
+                </div>
+            </div>
+            <div class="musician-song">
+                <img src="image/video_logo8.jpeg" height="40">
+                <div class="musician-singer">
+                    <div style="font-weight: bold">赤伶</div>
+                    <div>执素兮</div>
+                </div>
+            </div>
+            <div class="musician-song">
+                <img src="image/video_logo10.jpeg" height="40">
+                <div class="musician-singer">
+                    <div style="font-weight: bold">想对你说</div>
+                    <div>小潘潘（潘柚彤）</div>
+                </div>
             </div>
         </div>
         <video class="musician-video" autoplay loop muted src="video/song-video-douyin-1.mp4" ></video>
@@ -312,7 +338,6 @@
 <style>
     .musician-song{
         height: 62px;
-        background: #f1f1f2;
         overflow: hidden;
     }
     .musician-song img{
