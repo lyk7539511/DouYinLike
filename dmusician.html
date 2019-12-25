@@ -294,18 +294,57 @@
         </div>
     </div>
 
-    <div class="musician-video-list-container">
-        <div class="musician-list-text">
-            <h2>你的音乐很重要</h2>
-            <p>抖音鼓励用户通过音乐短视频表达他们的热情和创造力，当然，你的音乐很重要！</p>
-        </div>
-        <div class="musician-list">
-            <div class="musician-list-item">
-                <img src="image/">
+    <div class="musician-song-container">
+        <div class="musician-song-list">
+            <div class="musician-song">
+                <img src="image/video_logo1.jpeg" height="40">
+                <div class="musician-singer">
+                <div style="font-weight: bold">芒种</div>
+                <div>因阙诗听</div>
             </div>
-
+            </div>
         </div>
+        <video class="musician-video" autoplay loop muted src="video/song-video-douyin-1.mp4" ></video>
+
     </div>
 
 </body>
+<style>
+    .musician-song{
+        height: 62px;
+        background: #f1f1f2;
+        overflow: hidden;
+    }
+    .musician-song img{
+        float: left;
+        margin-top: 10px;
+        margin-right: 15px;
+        margin-left: 10px;
+        border-radius: 4px;
+    }
+    .musician-singer{
+        overflow: hidden;   /*将剩余宽度填充满 （左侧区域定宽，右侧区域不确定）*/
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .musician-song-list{
+        padding-top: 10px;
+        width: 374px;
+        display: inline-block;
+    }
+    .musician-song-container{
+        width: 760px;
+        height: 670px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 2px 4px 20px rgba(34,90,89,.2);
+        overflow: hidden;
+    }
+    .musician-video{
+        width: 380px;
+        height: 670px;
+        object-fit: cover;
+        vertical-align: top;
+    }
+</style>
 </html>
