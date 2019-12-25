@@ -12,6 +12,14 @@
         .musician-header{
             height: 80px;
             overflow: hidden;
+            position: fixed;    /*相对于浏览器定位，保持header不动*/
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: white;
+            z-index: 100;   /*显示优先级*/
+            box-shadow: 2px 4px 20px rgba(34,90,89,.2);
         }
         .musician-logo{
             float: left;
@@ -42,6 +50,8 @@
             overflow: hidden;   /*溢出隐藏*/
 
             text-align: center;/*行级标签水平居中*/
+
+            margin-top: 80px;
         }
         .musician-slogan{
             font-size: 70px;
@@ -205,11 +215,58 @@
             });
 
             var $video = $('.musician-video');
+            var $start = $('.musician-start');
             $('.musician-song').on('click',function () {
                 var video = $(this).attr('video');
-                $video.attr('src',video);
+                if ($video.attr('src') !== video){  //如果点击的是同一个视频，则不发生任何变化
+
+                    $video.attr('src',video);   //设置标签属性
+                    $(this).css('background','#f1f1f2');   //设置标签样式，将选中的背景变为灰色
+                    $(this).siblings().css('background','#ffffff'); //将其他背景变为白色
+
+                    //点击其他视频默认直接播放
+                    $video.get(0).play();
+                    $start.css('display','none');
+                    $start.attr('play','1');
+                }
+
 
             });
+
+            //播放
+            var $player = $('.musician-player');
+            $player.on('click',function () {
+                if ($(this).attr('src')==='image/player_close.svg'){
+                    $video.get(0).muted = false;
+                    $(this).attr('src','image/player.svg');
+                }else {
+                    $video.get(0).muted = true;
+                    $(this).attr('src','image/player_close.svg');
+                }
+            });
+
+
+            $start.on('click',function () {
+                var $play = $(this).attr('play');
+                if ($play === '0'){ //0为暂停状态
+                    $video.get(0).play();   //播放
+                    $(this).attr('play','1');
+                    $(this).css('display','none');
+                }
+            })
+            $video.on('click',function () {
+                var $play = $start.attr('play');
+                if ($play === '0'){ //0为暂停状态
+                    $video.get(0).play();   //播放
+                    $start.attr('play','1');
+                    $start.css('display','none');
+                }else {
+                    $video.get(0).pause();   //暂停
+                    $start.attr('play','0');
+                    $start.css('display','inline-block');
+                }
+            });
+
         })
     </script>
 </head>
@@ -306,46 +363,55 @@
         </div>
     </div>
 
-    <div class="musician-song-container">
-        <div class="musician-song-list">
-            <div class="musician-song" video = "video/song-video-douyin-1.mp4" style="background: #f1f1f2">
-                <img src="image/video_logo1.jpeg" height="40">
-                <div class="musician-singer">
-                    <div style="font-weight: bold">芒种</div>
-                    <div>因阙诗听</div>
+    <div class="musician-wrapper">
+        <div class="musician-cloth">
+            <div class="musician-song-container">
+                <div class="musician-song-list">
+                    <div class="musician-song" video = "video/song-video-douyin-1.mp4" style="background: #f1f1f2">
+                        <img src="image/video_logo1.jpeg" height="40">
+                        <div class="musician-singer">
+                            <div style="font-weight: bold">芒种</div>
+                            <div>因阙诗听</div>
+                        </div>
+                    </div>
+                    <div class="musician-song" video = "video/song-video-douyin-5.mp4">
+                        <img src="image/video_logo5.jpeg" height="40">
+                        <div class="musician-singer">
+                            <div style="font-weight: bold">你笑起来真好看</div>
+                            <div>李昕融</div>
+                        </div>
+                    </div>
+                    <div class="musician-song" video = "video/song-video-douyin-8.mp4">
+                        <img src="image/video_logo8.jpeg" height="40">
+                        <div class="musician-singer">
+                            <div style="font-weight: bold">赤伶</div>
+                            <div>执素兮</div>
+                        </div>
+                    </div>
+                    <div class="musician-song" video = "video/song-video-douyin-10.mp4">
+                        <img src="image/video_logo10.jpeg" height="40">
+                        <div class="musician-singer">
+                            <div style="font-weight: bold">想对你说</div>
+                            <div>小潘潘（潘柚彤）</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="musician-song" video = "video/song-video-douyin-5.mp4">
-                <img src="image/video_logo5.jpeg" height="40">
-                <div class="musician-singer">
-                    <div style="font-weight: bold">你笑起来真好看</div>
-                    <div>李昕融</div>
-                </div>
-            </div>
-            <div class="musician-song" video = "video/song-video-douyin-8.mp4">
-                <img src="image/video_logo8.jpeg" height="40">
-                <div class="musician-singer">
-                    <div style="font-weight: bold">赤伶</div>
-                    <div>执素兮</div>
-                </div>
-            </div>
-            <div class="musician-song" video = "video/song-video-douyin-10.mp4">
-                <img src="image/video_logo10.jpeg" height="40">
-                <div class="musician-singer">
-                    <div style="font-weight: bold">想对你说</div>
-                    <div>小潘潘（潘柚彤）</div>
-                </div>
+                <video class="musician-video" loop muted src="video/song-video-douyin-1.mp4" ></video>
+                <img class="musician-player" src="image/player_close.svg"/>
+                <img play="0" class="musician-start" src="image/start.svg"/>
+
             </div>
         </div>
-        <video class="musician-video" autoplay loop muted src="video/song-video-douyin-1.mp4" ></video>
-
     </div>
+
 
 </body>
 <style>
     .musician-song{
         height: 62px;
         overflow: hidden;
+        cursor: pointer;
+        text-align: left;
     }
     .musician-song img{
         float: left;
@@ -365,6 +431,8 @@
         display: inline-block;
     }
     .musician-song-container{
+        display: inline-block;
+        position: relative;
         width: 760px;
         height: 670px;
         border-radius: 10px;
@@ -377,6 +445,26 @@
         height: 670px;
         object-fit: cover;
         vertical-align: top;
+    }
+    .musician-player{
+        position: absolute;
+        top: 15px;
+        right: 320px;
+        cursor: pointer;
+    }
+    .musician-start{
+        position: absolute;
+        top: 300px;
+        right: 150px;
+    }
+    .musician-wrapper{
+        width: 100%;
+        text-align: center;
+    }
+    .musician-cloth{
+        width: 1200px;
+        display: inline-block;
+        text-align: right;
     }
 </style>
 </html>
