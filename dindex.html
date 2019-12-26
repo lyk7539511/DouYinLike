@@ -10,7 +10,7 @@
             margin: 0
         }
 
-        html, body {
+        html, body {    /* 仅适用于图片或视频占用一整屏*/
             width: 100%;
             height: 100%;
         }
@@ -18,8 +18,8 @@
         .index-video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            vertical-align: top;
+            object-fit: cover;/* 视频多余部分剪切掉*/
+            vertical-align: top; /* 修改基线影响*/
             min-width: 1200px;
         }
 
@@ -149,7 +149,6 @@
             position: absolute;
             top: 0;
             right: -2px;
-
             /*初始大小为0*/
             width: 0;
             height: 0;
@@ -190,6 +189,7 @@
 
         //JQuery
         $(function () {
+            //音乐播放
             var $player = $('#player');  //Jquery获取标签
             var $video = $('#video');
             $player.on('click', function () {
