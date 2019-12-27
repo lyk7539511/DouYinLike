@@ -34,7 +34,6 @@
             left: 0;
             right: 0;
             width: 100%;
-            height: 100px;
 
         }
         .app-cloth{
@@ -102,16 +101,15 @@
             width: 100%;
         }
         .app-footer{
-            position: fixed;
+            position: fixed;    /* 相对于滚动区域定位 */
             bottom: 0;
             left: 0;
             right: 0;
             width: 100%;
         }
         .app-ad{
-            overflow: hidden;
-            position: relative;
-
+            overflow: hidden;   /*清除浮动 */
+            position: relative; /* 里面的元素要相对于ad定位 */
             margin: 0 auto;
             width: 100%;
             max-width: 750px;
@@ -120,10 +118,9 @@
         }
         .app-ad-icon{
             position: absolute;
-            left: 0;
+            left: 4%;
             bottom: 0;
             width: 45%;
-            margin-left: 4%;
             margin-bottom: 1%;
         }
         .app-btn{
@@ -216,8 +213,6 @@
 
         </div>
     </div>
-
-
 
 </body>
 </html>
