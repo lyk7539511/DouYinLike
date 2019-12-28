@@ -3,6 +3,15 @@
     margin: 0
 }
 
+/* 垂直居中 */
+.vertical-helper {
+    height: 100%;
+    display: inline-block;
+    *zoom: 1;
+    *display: inline;
+    vertical-align: middle;
+}
+
 /*********************** index *****************************/
 .index-video {
     width: 100%;
