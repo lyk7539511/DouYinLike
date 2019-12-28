@@ -5,136 +5,13 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <script src="js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="css/dyin.css">
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-        }
         html,body{
             background: #161823;
             font-size: 2rem;
         }
-        .app-container{
-            margin: 0 auto; /*该居中方式必须为块级标签且定宽才有效*/
-            max-width: 750px;
-            width: 100%;
-            overflow: hidden;
-        }
-        .app-bg{
-            width: 104%;
-            vertical-align: top;
-            margin-top: -20%;
-            filter: blur(5px);
-            margin-left: -2%;
 
-        }
-        .app-wrapper{
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-
-        }
-        .app-cloth{
-            max-width: 750px;
-            width: 100%;
-            margin: 0 auto;
-
-        }
-        .app-box{
-            position: relative;
-            width: 100%;
-            background: rgba(0,0,0,.6);
-
-        }
-        .app-logo{
-            display: block;
-            width: 38%;
-            margin: 0 auto;
-            padding-top: 4%;
-        }
-        .app-cat{
-            position: absolute;
-            top: 9%;
-            left: 32.5%;
-            width: 31%;
-        }
-        .app-original{
-            position: absolute;
-            left: 32%;
-            top: 8%;
-            width: 11%;
-        }
-        .app-music{
-            font-size: .3rem;
-            color: white;
-            text-align: center;
-            margin-top: 30px;
-        }
-        .app-singer{
-            font-size: .26rem;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .app-number{
-            margin-top: 4px;
-            padding-bottom: 5%;
-            font-size: .26rem;
-            text-align: center;
-            color: #bdbec4;
-        }
-        .app-flow{
-            font-size: 0;
-            background: #161823;
-            margin-bottom: 18%;
-        }
-        .app-flow>div{
-            display: inline-block;
-            width: 33.33333333%;
-        }
-        .app-flow>div>div{
-            padding-bottom: 1px;
-            padding-right: 1px;
-        }
-        .app-flow img{
-            width: 100%;
-        }
-        .app-footer{
-            position: fixed;    /* 相对于滚动区域定位 */
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-        }
-        .app-ad{
-            overflow: hidden;   /*清除浮动 */
-            position: relative; /* 里面的元素要相对于ad定位 */
-            margin: 0 auto;
-            width: 100%;
-            max-width: 750px;
-            background: #0e0b17;
-
-        }
-        .app-ad-icon{
-            position: absolute;
-            left: 4%;
-            bottom: 0;
-            width: 45%;
-            margin-bottom: 1%;
-        }
-        .app-btn{
-
-            font-size: .28rem;
-            float: right;
-            max-width: 750px;
-            background: red;
-            padding: 1.5% 4.5%;
-            margin: 3%;
-            border-radius: 4px;
-            color: white;
-            cursor: pointer;
-        }
     </style>
     <script>
         resetrem();
